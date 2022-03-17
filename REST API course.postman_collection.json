@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "b46a8ba9-c434-487a-bcd9-a52d2b23be49",
+		"name": "REST API course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "section 3",
+			"item": [
+				{
+					"name": "/store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store create new store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Store\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<store_name>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/store/My Store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store",
+								"My Store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<store_name>/item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/store/My Store/item",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store",
+								"My Store",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<store_name>/item create item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Milk\",\n    \"price\": 10.00\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/store/New Store/item",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store",
+								"New Store",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "section 4",
+			"item": [
+				{
+					"name": "/items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/items",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"items"
+							]
+						},
+						"description": "This should return a list of items dictionary."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDczNTQxOTAsImlhdCI6MTY0NzM1Mzg5MCwibmJmIjoxNjQ3MzUzODkwLCJpZGVudGl0eSI6MX0.d8G60XNQ172TrRgmA5TEMAhFpkhEnGa9juPETYGa9Eg",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/Chair",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"Chair"
+							]
+						},
+						"description": "This should return the item details by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/<name>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"<name>"
+							]
+						},
+						"description": "This request will delete the item name uniquely identified by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 22.54\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/pen",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"pen"
+							]
+						},
+						"description": "This request will create or update an item with unique name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 11.57\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/Chair",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"Chair"
+							]
+						},
+						"description": "This request will create a item with unique name and add the price to it. If the item exist it will fail."
+					},
+					"response": []
+				},
+				{
+					"name": "/auth",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth"
+							]
+						},
+						"description": "This request will provide use with a JWT token."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "section 5-6",
+			"item": [
+				{
+					"name": "/items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/items",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"items"
+							]
+						},
+						"description": "This should return a list of items dictionary."
+					},
+					"response": []
+				},
+				{
+					"name": "/stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/stores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"stores"
+							]
+						},
+						"description": "This should return a list of items dictionary."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/item/Chair",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								"Chair"
+							]
+						},
+						"description": "This should return the item details by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<name>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/store/FurnitureShoppe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"FurnitureShoppe"
+							]
+						},
+						"description": "This should return the item details by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/item/Chair",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								"Chair"
+							]
+						},
+						"description": "This request will delete the item name uniquely identified by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/store/FurnitureShoppe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"FurnitureShoppe"
+							]
+						},
+						"description": "This request will delete the item name uniquely identified by name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"store_id\": 2,\n    \"price\": 33.4\n}"
+						},
+						"url": {
+							"raw": "{{url}}/item/Stool",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								"Stool"
+							]
+						},
+						"description": "This request will create or update an item with unique name."
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"store_id\": 1,\n    \"price\": 11.57\n}"
+						},
+						"url": {
+							"raw": "{{url}}/item/Chair",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								"Chair"
+							]
+						},
+						"description": "This request will create a item with unique name and add the price to it. If the item exist it will fail."
+					},
+					"response": []
+				},
+				{
+					"name": "/store/<name>",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/store/FurnitureShoppe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"FurnitureShoppe"
+							]
+						},
+						"description": "This request will create a item with unique name and add the price to it. If the item exist it will fail."
+					},
+					"response": []
+				},
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.test(\"Set jwt token\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.access_token).not.eql(undefined);",
+									"",
+									"});",
+									"pm.environment.set(\"access_token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "This request will provide use with a JWT token."
+					},
+					"response": []
+				},
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "This request will provide use with a JWT token."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
