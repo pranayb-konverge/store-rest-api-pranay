@@ -1,10 +1,9 @@
 from flask import Flask
 from flask_restful import Api
 import uuid
-from flask_jwt import JWT
+from flask_jwt_extended import JWTManager
 
-from security import authenticate, identity
-from resources.user import UserRegister, User
+from resources.user import UserRegister, User, UserLogin
 from resources.item import Item, ItemsList
 from resources.store import Store, StoreList
 
@@ -16,12 +15,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.secret_key = str(uuid.uuid4()) # make a random UUID
 api = Api(app)
 
-jwt = JWT(app, authenticate, identity) # /auth
+jwt = JWTManager(app) # not creating /auth endpoint
 
 api.add_resource(Item, '/item/<string:name>') 
 api.add_resource(ItemsList, '/items') 
 api.add_resource(UserRegister, '/register') # user registration route 
 api.add_resource(User, '/user/<int:user_id>')
+api.add_resource(UserLogin, '/login')
 api.add_resource(StoreList, '/stores')
 api.add_resource(Store, '/store/<string:name>')
 
